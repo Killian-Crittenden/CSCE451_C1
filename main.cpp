@@ -9,10 +9,16 @@ void init_map(std::unordered_map<char, int>& map){
     char chr = 'a';
     for(int i = 0; i < 26; i++){
         map.insert({chr+i, 0});
-
     }
     // for other
     map.insert({'0', 0});
+}
+
+void print_char_stats(std::unordered_map<char, int>& map, int total_chars){
+    for(char i = 'a'; i <= 'z'; i++){
+        printf("%c: %7d (%3.2f%c)\n", i, map[i], ((float)map[i]/(float)total_chars)*100, '%');
+    }
+    printf("other: %7d (%3.2f%c)\n", map['0'], ((float)map['0']/(float)(total_chars + map['0']))*100, '%');
 }
 
 int main(int argc, char** argv) {
@@ -37,7 +43,7 @@ int main(int argc, char** argv) {
 
 
     char x;
-    int other = 0;
+    int total_chars = 0;
 
     while(!file.eof()) {
         file >> x;
@@ -45,25 +51,24 @@ int main(int argc, char** argv) {
             break;
         }
         if (isalpha(x)) {
-            std::cout << x << std::endl;  
+            total_chars++;
             char_dict[x] += 1;
         }
         
         else {
-            other++;
             char_dict['0'] += 1;
         }
     }
     
-    std::cout << "other : " << other << std::endl;
+    //std::cout << "other : " << other << std::endl;
 
-    for (auto itr = char_dict.begin(); itr != char_dict.end();itr++ )
-    {
-        std::cout << itr->first << ":" << itr->second << std::endl;
-    }
+    // for (auto itr = char_dict.begin(); itr != char_dict.end();itr++ )
+    // {
+    //     std::cout << itr->first << ":" << itr->second << std::endl;
+    // }
 
 
-    
+    print_char_stats(char_dict, total_chars);
     
 
     return 0;        
