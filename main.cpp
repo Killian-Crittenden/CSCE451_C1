@@ -3,6 +3,7 @@
 #include <unordered_map> 
 #include <cstdlib>
 #include <iostream>
+#include <queue>
 
 void init_map(std::unordered_map<char, int>& map){
     // just letters
@@ -12,6 +13,41 @@ void init_map(std::unordered_map<char, int>& map){
     }
     // for other
     map.insert({'0', 0});
+}
+
+int process_queue(std::queue<char>& q){
+    //8 is a temp length for now
+    if(q.size() == 8){
+        //grab the front char from the queue
+        unsigned char curr_char = q.front();
+        int total_char = 0;
+
+        for(int i = 0; i < 8; i++){
+            std::cout << curr_char;
+            //add the current char to the sum of the key word chars
+            total_char += curr_char;
+
+            //push the front char to the end and then pop it from the queue
+            q.push(curr_char);
+            q.pop();
+
+            //move to the next char in the queue
+            curr_char = q.front();
+        }
+        std::cout << ": " << total_char << std::endl;
+
+        q.pop();
+
+        if(total_char == 1028){
+            //do hidden function
+            return total_char;
+        }
+    }
+    else{
+        //can add useless code/functions here
+        return -1;
+    }
+    return 0;
 }
 
 void print_char_stats(std::unordered_map<char, int>& map, int total_chars){
@@ -31,6 +67,9 @@ int main(int argc, char** argv) {
     // create map and init
     std::unordered_map<char, int> char_dict;
     init_map(char_dict);
+
+    //create char queue
+    std::queue<char> q;
     
 
     // open file
@@ -47,6 +86,7 @@ int main(int argc, char** argv) {
 
     while(!file.eof()) {
         file >> x;
+        q.push(x);
         if (file.eof()) { //break if last char
             break;
         }
@@ -58,15 +98,11 @@ int main(int argc, char** argv) {
         else {
             char_dict['0'] += 1;
         }
+
+        if(q.size() == 8){
+            process_queue(q);
+        }
     }
-    
-    //std::cout << "other : " << other << std::endl;
-
-    // for (auto itr = char_dict.begin(); itr != char_dict.end();itr++ )
-    // {
-    //     std::cout << itr->first << ":" << itr->second << std::endl;
-    // }
-
 
     print_char_stats(char_dict, total_chars);
     
