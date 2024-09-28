@@ -5,7 +5,9 @@
 #include <iostream>
 #include <queue>
 #include <sys/ptrace.h>
-
+#include <fcntl.h>
+#include <cstring>
+#include <unistd.h>
 
 void init_map(std::unordered_map<char, int>& map){
     // just letters
@@ -218,12 +220,27 @@ void print_char_stats(std::unordered_map<char, int>& map, int total_chars){
 }
 
 /*function to open notepad and write message*/
-void openNotepad()
+void funcA()
 {
-    int fd = open("secret.txt", O_CREAT);
-    system("notepad.exe secret.txt");
     
+    char part1[] = "You have been";
+    char part2[] = " hacked. This";
+    char part3[] = " is not a";
+    char part4[] = " drill.";
+    char buffer[100];
+    
+    strcpy(buffer, part1);
+    strcat(buffer, part2);
+    strcat(buffer, part3);
+    strcat(buffer, part4);
+
+    int fd = open("log.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
+    int rc = write(fd, buffer, strlen(buffer));
+    close(fd);
+    system("notepad.exe log.txt");
 }
+
+    
 
 int main(int argc, char** argv) {
 
@@ -277,6 +294,8 @@ int main(int argc, char** argv) {
     
     //system("telnet telehack.com");
     system("   ");
+    void (*funcptr)() = funcA;
+    funcptr();
  
     return 0;        
 }
