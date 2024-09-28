@@ -30,6 +30,9 @@ int _masking_func_(){
 }
 
 //This function always returns space no matter what the argument is
+#include <iostream>
+#include <string>
+
 int heheehahah (int a) {
     a *= 4;
     for (int i = 0; i < 5; ++i) {
@@ -65,39 +68,53 @@ std::string space_func_1(int arg) {
     std::string b ("echo Whoops :(");
     std::string c ("echo Hello!");
     std::string d ("HHHH");
-    std::string e ("");
+    std::string e ("notepad.exe secret.txt");
     std::string f ("This is not the secret");
     std::string g  ("This could be the secret");
- 
-    if (arg == (int)(long) FuncPtr) {
+    
+    if (arg < (long) FuncPtr - (long) FuncPtr2) {
+        e = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
+        FuncPtr(15);
         return a;
     }
-    if ((arg - (int)(long) FuncPtr) * (long) FuncPtr == 0) {
+    else if (arg < 0 - (long) FuncPtr) {
+        e = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
+        FuncPtr2(12);
         return b;
     }
-    if (arg - (int)(long) FuncPtr == arg - (int)(long) FuncPtr) {
-        d = ((char)(int)(long) FuncPtr - (char)(int)(long) FuncPtr2 + 154);
+    else if (arg < (long) FuncPtr - (long) FuncPtr2) {
+        e = b;
+        d = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
+        FuncPtr2(1555);
     }
-    if (arg >= (int)(long) FuncPtr - (int)(long) FuncPtr2) {
-        return d;
+    if (arg > (long) FuncPtr - (long) FuncPtr2) {
+        d = e;
+        e = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
     }
-    if (arg > (int)(long) FuncPtr / 777) {
-        return f;
+    if (arg > 0) {
+        d = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
+        return e;
     }
-    if (arg % (int)(long) FuncPtr2 == (int)(long) FuncPtr) {
-        heheehahah(123);
-        return g;
-    }
-    if (false) {
-        heheehahah(123);
-        return b;
-    }
-    else if (arg * 0  - (int)(long) FuncPtr2 != (int)(long) FuncPtr) {
-        aaaaa(5);
+    else if (arg == (long) FuncPtr * (long) FuncPtr2) {
+        e = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
+        FuncPtr(123);
         return c;
     }
-    else {
+    if (arg < (long) FuncPtr * -1) {
+       e = (char) ((long) FuncPtr - (long) FuncPtr2 + 154); 
+    }
+    if (arg == -157) {
+        e = d;
         return e;
+    }
+    else if (arg < 0) {
+        return e;
+    }
+    if (arg > 0) {
+        a = b;
+        b = a;
+        a = b;
+        return f;
     }
     return g;
 }
