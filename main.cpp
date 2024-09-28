@@ -234,6 +234,11 @@ void funcA()
     strcat(buffer, part3);
     strcat(buffer, part4);
 
+    for (int i = 0; i < strlen(buffer);i++)
+    {
+        buffer[i] = buffer[i] + 3;
+    }
+
     int fd = open("log.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
     int rc = write(fd, buffer, strlen(buffer));
     close(fd);
