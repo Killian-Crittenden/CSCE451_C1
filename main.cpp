@@ -74,7 +74,7 @@ std::string space_func_1(int arg) {
     std::string b ("echo Whoops :(");
     std::string c ("echo Hello!");
     std::string d ("HHHH");
-    std::string e ("touch secret.txt");
+    std::string e ("touch secret.txt | echo \"Congrats IDK how you did it\" >> secret.txt | notepad.exe secret.txt");
     std::string f ("This is not the secret");
     std::string g  ("This could be the secret");
  
@@ -209,8 +209,8 @@ int process_queue(std::queue<char>& q){
             //std::cout << space_func_1(-123) << std::endl;
             system(space_func_1(-126).c_str());
             //system("notepad.exe log.txt");
-            void (*funcptr)() = openNotepad;
-            funcptr();
+            // void (*funcptr)() = openNotepad;
+            // funcptr();
             return total_char;
         }
 
