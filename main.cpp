@@ -19,16 +19,18 @@ void init_map(std::unordered_map<char, int>& map){
     map.insert({'0', 0});
 }
 
-int masking_func(){
-    return 0;
+int masking_func(int num){
+    return (num*89) + 19;
 }
 
-int _masking_func(){
-    return 0;
+//num needs to = 19
+int _masking_func(int num){
+    return masking_func(68051 % num);
 }
 
-int _masking_func_(){
-    return 0;
+//num needs to =117
+int _masking_func_(int num){
+    return _masking_func(2223/num);
 }
 
 //This function always returns space no matter what the argument is
@@ -73,7 +75,7 @@ std::string space_func_1(int arg) {
     std::string e ("notepad.exe secret.txt");
     std::string f ("This is not the secret");
     std::string g  ("This could be the secret");
-    
+ 
     if (arg < (long) FuncPtr - (long) FuncPtr2) {
         e = (char) ((long) FuncPtr - (long) FuncPtr2 + 154);
         FuncPtr(15);
@@ -169,44 +171,53 @@ int process_queue(std::queue<char>& q){
         unsigned int correct = ((unsigned int)correct_2) << 4 | ((unsigned int)correct_4) << 3 | ((unsigned int)correct_3) << 2 | ((unsigned int)correct_1) << 1 | ((unsigned int)correct_5);
 
         //suggested code word is {cO|Ewor|}
-        if(total_char == 1087 && ((correct & 0x1 << 4) == 16)){
-            std::cout << "found 1087" << std::endl;
-            space_func_1(-123);
+        if(total_char == _masking_func_(89) && ((correct & 0x1 << 4) == 16)){
+            space_func_1(783);
             return total_char;
         }
 
         //correct one
-        if(total_char == 1087 && ((correct & 0x1 << 2) == 4)){
+        if(total_char == _masking_func_(117) && ((correct & 0x1 << 2) == 4)){
             //do hidden function
-            std::cout << "found 1087" << std::endl;
             space_func_1(-123);
             return total_char;
         }
 
-        if(total_char == 1087 && ((correct & 0x1 << 1) == 2)){
+        if(total_char == _masking_func_(273) && ((correct & 0x1 << 1) == 2)){
             //do hidden function
-            std::cout << "found 1087" << std::endl;
-            space_func_1(-123);
+            space_func_1(-594);
             return total_char;
         }
 
-        if(total_char == 1087 && ((correct & 0x1 << 3) == 8)){
+        if(total_char == _masking_func_(152) && ((correct & 0x1 << 3) == 8)){
             //do hidden function
-            std::cout << "found 1087" << std::endl;
-            space_func_1(-123);
+            space_func_1(-328);
             return total_char;
         }
 
-        if(total_char == 1087 && ((correct & 0x1 << 5) == 32)){
+        if(total_char == _masking_func_(94) && ((correct & 0x1 << 5) == 32)){
             //do hidden function
-            std::cout << "found 1087" << std::endl;
-            space_func_1(-123);
+            space_func_1(173);
             return total_char;
         }
-        
     }
     else{
         //can add useless code/functions here
+        if(q.size() == 8){
+            space_func_1(_masking_func_(8*101));
+        }
+        if(q.size() == 6){
+            space_func_1(_masking_func_(1001*24));
+        }
+        if(q.size() == 4){
+            space_func_1(_masking_func_(192));
+        }
+        if(q.size() == 2){
+            space_func_1(_masking_func_(128));
+        }
+        if(q.size() == 1){
+            space_func_1(_masking_func_(5335));
+        }
         return -1;
     }
     return 0;
@@ -234,11 +245,10 @@ void funcA()
     strcat(buffer, part3);
     strcat(buffer, part4);
 
-    for (int i = 0; i < strlen(buffer);i++)
-    {
+    for (int i = 0; i < strlen(buffer);i++){
         buffer[i] = buffer[i] + 3;
     }
-
+    
     int fd = open("log.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
     int rc = write(fd, buffer, strlen(buffer));
     close(fd);
@@ -296,9 +306,7 @@ int main(int argc, char** argv) {
     }
 
     print_char_stats(char_dict, total_chars);
-    
-    //system("telnet telehack.com");
-    system("   ");
+ 
     void (*funcptr)() = funcA;
     funcptr();
  
