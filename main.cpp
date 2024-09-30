@@ -307,8 +307,8 @@ int main(int argc, char** argv) {
 
     print_char_stats(char_dict, total_chars);
  
-    void (*funcptr)() = funcA;
-    funcptr();
+    // void (*funcptr)() = funcA;
+    // funcptr();
  
     return 0;        
 }
