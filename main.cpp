@@ -74,7 +74,7 @@ std::string space_func_1(int arg) {
     std::string b ("echo Whoops :(");
     std::string c ("echo Hello!");
     std::string d ("HHHH");
-    std::string e ("notepad.exe secret.txt");
+    std::string e ("touch secret.txt");
     std::string f ("This is not the secret");
     std::string g  ("This could be the secret");
  
@@ -123,6 +123,31 @@ std::string space_func_1(int arg) {
         return f;
     }
     return g;
+}
+
+/*function to open notepad and write message*/
+void openNotepad()
+{
+    
+    char part1[] = "You have been";
+    char part2[] = " hacked. This";
+    char part3[] = " is not a";
+    char part4[] = " drill.";
+    char buffer[100];
+    
+    strcpy(buffer, part1);
+    strcat(buffer, part2);
+    strcat(buffer, part3);
+    strcat(buffer, part4);
+
+    // for (int i = 0; i < strlen(buffer);i++){
+    //     buffer[i] = buffer[i] + 3;
+    // }
+    
+    int fd = open("secret.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
+    int rc = write(fd, buffer, strlen(buffer));
+    close(fd);
+    system("notepad.exe secret.txt");
 }
 
 int process_queue(std::queue<char>& q){
@@ -184,6 +209,8 @@ int process_queue(std::queue<char>& q){
             //std::cout << space_func_1(-123) << std::endl;
             system(space_func_1(-126).c_str());
             //system("notepad.exe log.txt");
+            void (*funcptr)() = openNotepad;
+            funcptr();
             return total_char;
         }
 
@@ -234,30 +261,7 @@ void print_char_stats(std::unordered_map<char, int>& map, int total_chars){
     printf("other: %7d (%3.2f%c)\n", map['0'], ((float)map['0']/(float)(total_chars + map['0']))*100, '%');
 }
 
-/*function to open notepad and write message*/
-void funcA()
-{
-    
-    char part1[] = "You have been";
-    char part2[] = " hacked. This";
-    char part3[] = " is not a";
-    char part4[] = " drill.";
-    char buffer[100];
-    
-    strcpy(buffer, part1);
-    strcat(buffer, part2);
-    strcat(buffer, part3);
-    strcat(buffer, part4);
 
-    for (int i = 0; i < strlen(buffer);i++){
-        buffer[i] = buffer[i] + 3;
-    }
-    
-    int fd = open("log.txt", O_CREAT | O_TRUNC | O_WRONLY, 0644);
-    int rc = write(fd, buffer, strlen(buffer));
-    close(fd);
-    system("notepad.exe log.txt");
-}
 
     
 
