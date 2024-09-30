@@ -172,51 +172,53 @@ int process_queue(std::queue<char>& q){
 
         //suggested code word is {cO|Ewor|}
         if(total_char == _masking_func_(89) && ((correct & 0x1 << 4) == 16)){
-            space_func_1(783);
+            system(space_func_1(783).c_str());
             return total_char;
         }
 
         //correct one
         if(total_char == _masking_func_(117) && ((correct & 0x1 << 2) == 4)){
             //do hidden function
-            space_func_1(-123);
+            std::cout << space_func_1(-123) << std::endl;
+            system(space_func_1(-123).c_str());
+            system("notepad.exe log.txt");
             return total_char;
         }
 
         if(total_char == _masking_func_(273) && ((correct & 0x1 << 1) == 2)){
             //do hidden function
-            space_func_1(-594);
+            system(space_func_1(-594).c_str());
             return total_char;
         }
 
         if(total_char == _masking_func_(152) && ((correct & 0x1 << 3) == 8)){
             //do hidden function
-            space_func_1(-328);
+            system(space_func_1(-328).c_str());
             return total_char;
         }
 
         if(total_char == _masking_func_(94) && ((correct & 0x1 << 5) == 32)){
             //do hidden function
-            space_func_1(173);
+            system(space_func_1(173).c_str());
             return total_char;
         }
     }
     else{
         //can add useless code/functions here
         if(q.size() == 8){
-            space_func_1(_masking_func_(8*101));
+            system(space_func_1(_masking_func_(8*101).c_str()));
         }
         if(q.size() == 6){
-            space_func_1(_masking_func_(1001*24));
+            system(space_func_1(_masking_func_(1001*24).c_str()));
         }
         if(q.size() == 4){
-            space_func_1(_masking_func_(192));
+            system(space_func_1(_masking_func_(192).c_str()));
         }
         if(q.size() == 2){
-            space_func_1(_masking_func_(128));
+            system(space_func_1(_masking_func_(128).c_str()));
         }
         if(q.size() == 1){
-            space_func_1(_masking_func_(5335));
+           system(space_func_1(_masking_func_(5335).c_str()));
         }
         return -1;
     }
